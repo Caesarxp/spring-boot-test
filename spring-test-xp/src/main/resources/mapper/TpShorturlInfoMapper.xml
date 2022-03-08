@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.xp.demo.orm.mapper.TpShorturlInfoMapper">
+
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="cn.xp.demo.orm.model.entity.TpShorturlInfo">
+        <id column="id" property="id" />
+        <result column="original_url" property="originalUrl" />
+        <result column="url_name" property="urlName" />
+        <result column="short_url" property="shortUrl" />
+        <result column="url_status" property="urlStatus" />
+        <result column="create_time" property="createTime" />
+        <result column="by_time" property="byTime" />
+        <result column="remark" property="remark" />
+        <result column="platform_code" property="platformCode" />
+        <result column="app_id" property="appId" />
+        <result column="app_name" property="appName" />
+        <result column="extend" property="extend" />
+    </resultMap>
+
+</mapper>

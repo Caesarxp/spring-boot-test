@@ -1,0 +1,16 @@
+server:
+  port: 5656
+spring:
+  profiles:
+    active: local
+  http2:
+    enabled: true
+  application:
+    name: xpdemo
+  swagger:
+    enabled: true
+  # 文件上传大小限制
+  servlet:
+    multipart:
+      max-file-size: 4MB
+      max-request-size: 10MB

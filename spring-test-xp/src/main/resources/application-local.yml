@@ -1,0 +1,79 @@
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+swagger:
+  enable: true
+logging:
+  level:
+    root: info
+    org.springframework.web: info
+    #    com.itheima.dbsharding: error
+    druid.sql: debug
+
+spring:
+  cache:
+    multi:
+      cache-prefix: test
+      redis:
+        default-expiration: 10000
+      caffeine:
+        expire-after-access: 10000
+        expire-after-write: 10000
+        refresh-after-write: 10000
+        maximum-size: 2
+  datasource:
+    # mysql 连接配置
+    host: 192.168.8.189
+    username: richinfo_csp
+    password: qvjjgGRuc5,i!@#
+    #url: jdbc:mysql://${spring.datasource.host}/andFinance?allowMultiQueries=true&characterEncoding=UTF8&autoReconnect=true
+    url: jdbc:mysql://${spring.datasource.host}/csp_third_part?allowMultiQueries=true&characterEncoding=UTF8&autoReconnect=true&useSSL=false&serverTimezone=GMT%2B8&rewriteBatchedStatements=true
+    #driver-class-name: com.mysql.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    # 使用druid数据源
+    type: com.alibaba.druid.pool.DruidDataSource
+    # 初始化连接数大小/最小/最大
+    initialSize: 5
+    minIdle: 10
+    maxActive: 30
+    # 配置获取连接等待超时的时间(毫秒)
+    maxWait: 60000
+    # 1)Destroy线程检测连接的间隔时间(毫秒),当空闲时间大于minEvictableIdleTimeMillis时,关闭连接
+    # 2)testWhileIdle申请连接时的执行检测条件:如果空闲时间大于此值,则执行validationQuery检测连接是否有效
+    timeBetweenEvictionRunsMillis: 60000
+    # 配置连接保持空闲而不被关闭的最长时间(毫秒)
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: select 'x'
+    testWhileIdle: true
+    testOnBorrow: true
+    testOnReturn: false
+    # 缓存PSCache开关(mysql建议关闭),并且指定每个连接上PSCache的大小
+    poolPreparedStatements: false
+    #maxPoolPreparedStatementPerConnectionSize: 100
+    # 配置监控统计拦截的filters,去掉后监控界面sql无法统计,'wall'用于防火墙
+    filters: stat,wall,slf4j
+    # 通过connectProperties属性来打开mergeSql功能;慢SQL记录
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+    # 合并多个DruidDataSource的监控数据
+    useGlobalDataSourceStat: true
+  jackson:
+    default-property-inclusion: non_null
+  redis:
+    host: 192.168.8.189
+    database: 0 # Redis数据库索引（默认为0）
+    port: 6379 # Redis服务器连接端口
+    password: 123456 # Redis服务器连接密码（默认为空）
+    timeout: 3000ms # 连接超时时间
+    lettuce:
+      pool:
+        max-active: 8 # 连接池最大连接数
+        max-idle: 8 # 连接池最大空闲连接数
+        min-idle: 0 # 连接池最小空闲连接数
+        max-wait: -1ms # 连接池最大阻塞等待时间，负值表示没有限制
+################################ mybatis-plus配置 ##################################
+mybatis-plus:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: ${src.base-package}.orm.model
+mica:
+  xss:
+    enabled: true

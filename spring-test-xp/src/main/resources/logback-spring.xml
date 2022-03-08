@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration debug="true">
+    <property name="LOG_HOME" value="${catalina.base}/logs/boot"/>
+
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread][%-5level] %logger{0}[%line] - %X{user}%msg%n</pattern>
+        </encoder>
+    </appender>
+    <!-- 主日志 -->
+    <appender name="main" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_HOME}/main.log.%d{yyyy-MM-dd}</fileNamePattern>
+        </rollingPolicy>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread][%-5level] %logger{0}[%line] - %X{user}%msg%n</pattern>
+            <charset>utf-8</charset>
+        </encoder>
+        <filter class="cn.xp.demo.component.MainLogFilter" />
+    </appender>
+       
+    <root level="INFO">
+        <appender-ref ref="STDOUT" />
+        <appender-ref ref="main" />
+    </root>
+	<logger name="org.springframework" level="ERROR"/>
+	<logger name="java.sql" level="ERROR"/>
+	<logger name="com.google.code.yanf4j" level="ERROR"/>
+	<logger name="net.rubyeye.xmemcached" level="ERROR"/>
+	<logger name="com.neo.sb.orm.dao" level="ERROR"/>
+
+</configuration>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.xp.demo.orm.mapper.BusinessTemplateInfoMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="cn.xp.demo.orm.model.entity.BusinessTemplateInfo">
+        <id column="id" property="id" />
+        <result column="template_code" property="templateCode" />
+        <result column="template_name" property="templateName" />
+        <result column="business_sort" property="businessSort" />
+        <result column="business_belong" property="businessBelong" />
+        <result column="on_status" property="onStatus" />
+        <result column="template_status" property="templateStatus" />
+        <result column="template_intro" property="templateIntro" />
+        <result column="creater" property="creater" />
+        <result column="modify_time" property="modifyTime" />
+        <result column="create_time" property="createTime" />
+        <result column="functions" property="functions" />
+        <result column="puzzle_flag" property="puzzleFlag" />
+        <result column="type" property="type" />
+        <result column="content_id" property="contentId" />
+        <result column="sort" property="sort" />
+    </resultMap>
+
+</mapper>

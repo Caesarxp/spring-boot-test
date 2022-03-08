@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  cn.xp.plugin.cache.metrics.RedisCaffeineCacheMeterConfiguration,\
+  cn.xp.plugin.cache.MultilevelCacheAutoConfiguration
