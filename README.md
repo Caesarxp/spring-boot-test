@@ -210,5 +210,9 @@ swagger会管理所有包含@ApiOperation注解的控制器方法，同时，可
 ```
 ## 2022/03/08 新增组件
 
-多级缓存  cache-spring-boot-starter
+- 多级缓存  cache-spring-boot-starter
+
+- 测试
+
+测试类型-短链的应用  TpShorturlInfoServiceImpl
 
